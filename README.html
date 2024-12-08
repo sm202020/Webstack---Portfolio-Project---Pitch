@@ -64,11 +64,11 @@
             <p>Ready? Go!</p>
             <h2>Resources</h2>
             <ul>
-                <li><a href="https://intranet.alxswe.com/rltoken/IGqvZnIazd4TmRTiE8rvHg">How To Create an Effective Software Project Plan</a><li></li>
-                <li><a href="https://intranet.alxswe.com/rltoken/I-6k7FO1Yr0fKHTicGI6Hw">How to organize a one-man project?</a><li></li>
-                <li><a href="https://intranet.alxswe.com/rltoken/pqidk_1E5xNLB0HJ5HzTPg">11 tips to plan, organize, and execute software engineering processes</a><li></li>
-                <li><a href="https://intranet.alxswe.com/rltoken/lmzex7kBBlhOoEWVPHhnfA">Software Planning and Technical Documentation</a><li></li>
-                <li><a href="https://intranet.alxswe.com/rltoken/ZAAwiGMcXGRczl8vbOiiDw">Software project planning</a><li></li>
+                <li><a href="https://intranet.alxswe.com/rltoken/IGqvZnIazd4TmRTiE8rvHg">How To Create an Effective Software Project Plan</a><li>
+                <li><a href="https://intranet.alxswe.com/rltoken/I-6k7FO1Yr0fKHTicGI6Hw">How to organize a one-man project?</a><li>
+                <li><a href="https://intranet.alxswe.com/rltoken/pqidk_1E5xNLB0HJ5HzTPg">11 tips to plan, organize, and execute software engineering processes</a><li>
+                <li><a href="https://intranet.alxswe.com/rltoken/lmzex7kBBlhOoEWVPHhnfA">Software Planning and Technical Documentation</a><li>
+                <li><a href="https://intranet.alxswe.com/rltoken/ZAAwiGMcXGRczl8vbOiiDw">Software project planning</a><li>
             </ul>
             <h2>More Info</h2>
             <h3>Manual QA Review</h3>
