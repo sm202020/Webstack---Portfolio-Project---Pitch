@@ -51,12 +51,10 @@
             <p>Front-end app? Mobile app? Back-end app? API service? e-commerce website? cloud platform for videos streaming? or better: a learning platform?</p>
             <p>Don’t be afraid to work in a team - “more resources” means bigger project - but also more soft-skills.</p>
             <p>Working solo is also fine - just don’t think too big or find quick-win to achieve your project.</p>
-            
             <h2>No idea?</h2>
             <p>Be creative doesn’t mean “create a web application that will make the world a better place” - no - it means: do what you really want: it can be applying concept your learn during the curriculum - it can be exploring a new technology (Go, Rails, etc.) - or make a clone of an existing platform (I was not joking about the learning platform or video streaming…)</p>
             <p>Try to solve a problem or learn!</p>
             <p>Also, a web application doesn’t only mean “Website”, it can also be just an API.</p>
-
             <h2>Steps of this portfolio project</h2>
             <p>To end the curriculum, the portfolio project is split in 3 parts:</p>
             <ul>
@@ -66,7 +64,6 @@
             <p>Ready? Go!</p>
             <h2>Resources</h2>
             <ul>
-
                 <li><a href="https://intranet.alxswe.com/rltoken/IGqvZnIazd4TmRTiE8rvHg">How To Create an Effective Software Project Plan</a><li></li>
                 <li><a href="https://intranet.alxswe.com/rltoken/I-6k7FO1Yr0fKHTicGI6Hw">How to organize a one-man project?</a><li></li>
                 <li><a href="https://intranet.alxswe.com/rltoken/pqidk_1E5xNLB0HJ5HzTPg">11 tips to plan, organize, and execute software engineering processes</a><li></li>
@@ -109,17 +106,11 @@
                 <li>Video Recording of one or more team members presenting the pitch (using the Google Slide presentation)</li>
             </ul>
             <p>Please post your slides and the recording to your web-stack portfolio pitch here.</p>
-
             <p>Let’s do it! 💪</p>
-
             <p>Note:</p>
-
             <p>If you are multiple people in your team, decide who is going to do the review.</p>
-
             <p>Go to slack channel #cohort_X_review (your cohort) and look for “Looking for review for webstack portfolio pitch” that has not been replied to. Once you reply to this message you will become each others reviewers. Start a DM with one another. Share the corection link in that DM and review each other.</p>
-
             <p>In case you have not found “Looking for review for webstack portfolio pitch” - then start a new thread with “Looking for review for webstack portfolio pitch” and await a new team to find you.</p>
-
             <p>Happy reviewing!</p>
         </main>
     </body>
