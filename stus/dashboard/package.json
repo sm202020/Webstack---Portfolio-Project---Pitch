@@ -51,7 +51,6 @@
     "redux-mock-store": "^1.5.5",
     "redux-thunk": "^3.1.0"
   },
-  "type": "module",
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
