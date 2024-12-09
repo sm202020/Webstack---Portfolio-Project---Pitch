@@ -74,7 +74,7 @@ const forgorPassStyles = StyleSheet.create({
         fontFamily: "'Nunito Sans', sans-serif",
         '@media (max-width: 950px)': {
             width: "60%",
-            marginTop: "30%",
+            marginTop: "40%",
         },
     },
     formTitle: {

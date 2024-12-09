@@ -17,7 +17,7 @@ export default class Header extends Component {
 const headerStyles = StyleSheet.create({
     landingPage: {
         position: "absolute",
-        top: '1.5rem',
+        top: '0.5rem',
         left: '1.5rem',
         display: "flex",
         flexDirection: 'row',
