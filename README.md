@@ -41,8 +41,19 @@ Software testing and quality assurance
                 <li><a href="https://intranet.alxswe.com/concepts/548">Portfolio project</a></li>
             </ul>
             <br>
-            <h2>Last run!</h2>
-            <p>Yes! the portfolio project of the Webstack specialization will be your last-major-project!</p>
+            <h2>Technology and Architecture Used</h2>
+            <p> Frontend:
+1. Canva
+2. React.js
+3. Webpack
+4. Babel
+5. HTML
+6. CSS
+7. Aphrodite
+
+Backend:
+1. Firebase (for auth and data storage)
+2. JSON-server (REST API)</p>
             <br>
             <h2>Make your choice</h2>
             <p>You will have almost 2 weeks to develop your portfolio project - during this period you will be alone or by team - to create a fully functional web application.</p>
