@@ -59,7 +59,8 @@ Backend:
             <p>You will have almost 2 weeks to develop your portfolio project - during this period you will be alone or by team - to create a fully functional web application.</p>
             <p>Be before starting any coding, you will need to research and define the project.</p>
             <br>
-            <p>This project is important:</p>
+            <p>LogIn Page:</p>
+            
             <ul>
                 <li>Because it will end your pathway at ALX</li>
                 <li>It’s summarize the entire Back-end specialization</li>
