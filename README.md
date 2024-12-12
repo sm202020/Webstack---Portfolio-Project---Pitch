@@ -15,12 +15,24 @@
                 <p>Weight: 1</p>
                 <p>Project to be done in teams of 4 people (your team: Taofeek Ojewande, Samson Agbo, Naja'atu Umar, Smith Mebawondu)</p>
                 <p> Project will start Dec 2, 2024 6:00 AM, must end by Dec 13, 2024 6:00 AM</p>
-                <p>Manual QA review must be done (request it when you are done with the project)</p>
+                <p>The maing goal of this project, is to develop a task management app for Personal use The App can be access via;
+Any user can access the app via a web address and either signup (if a new user) or login (an existing user) on the homepage.
+This directs the user to the “user dashboard” where tasks can be added, updated, read, or deleted. 
+The tasks can be filtered based on status such as “Active, Completed”. 
+A notification panel to show upcoming events will be display.
+ </p>
             </div>
         </header>
         <main>
-            <h2>Concepts</h2>
-            <p><em>For this project, we expect you to look at these concepts:</em></p>
+            <h2>Learning Objectives</h2>
+            <p><em>Team Collaboration: Using Version Control such as Git and GitHub.
+Applications of skills taught in the ALX program most especially during the Front-end specialization phase. This includes building interactive UIs with React, implementing state management using React Hooks or Context API, handling component lifecycle and routing with React Router, and creating responsive and user-friendly interfaces using CSS frameworks or custom styles
+Learning of other needed skills: Simulating backend interactions with mock APIs using tools like json-server or services like Firebase
+Actualizing a project within a timeframe.
+Project Management Skills
+Database design
+Software testing and quality assurance
+</em></p>
             <ul>
                 <li><a href="https://intranet.alxswe.com/concepts/102160">Portfolio Project Idea Bank</a></li>
                 <li><a href="https://intranet.alxswe.com/concepts/102161">Portfolio Project Idea Bank</a></li>
