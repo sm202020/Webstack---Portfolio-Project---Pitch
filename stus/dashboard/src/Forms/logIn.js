@@ -143,6 +143,7 @@ const logInStyles = StyleSheet.create({
         fontStyle: "italic",
         ':hover': {
             color: "#f4f8f7",
+            cursor: "pointer",
         },
     },
     rememberMe: {
@@ -181,6 +182,8 @@ const logInStyles = StyleSheet.create({
         marginLeft: "1rem",
         ':hover': {
             color: "#008d7f",
+            cursor: "pointer",
         },
     },
+    
 });

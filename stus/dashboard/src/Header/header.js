@@ -31,6 +31,7 @@ const headerStyles = StyleSheet.create({
         },
         zIndex: '1000',
         backgroundColor: "white",
+        cursor: "pointer",
     },
     image: {
         width: "40%",

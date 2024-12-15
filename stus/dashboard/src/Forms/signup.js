@@ -2,22 +2,31 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import LogIn from './logIn';
 import Header from "../Header/header";
+import LandingPage from '../LandingPage/landingPage';
 
 
 export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.handleLogIn = this.handleLogIn.bind(this);
-        this.state = { displayLogIn: false}
+        this.handleHomePage = this.handleHomePage.bind(this);
+        this.state = { displayLogIn: false, displayHomePage: false};
     }
 
     handleLogIn() {
         this.setState({ displayLogIn: true });
     }
+
+    handleHomePage() {
+        this.setState({displayHomePage: true});
+    }
     render() {
         return (
             <div>
-                <Header />
+                <div onClick={this.handleHomePage}>
+                    <Header />
+                </div>
+
             <div className={css(signUpStyles.container)}>
                 <div className={css(signUpStyles.signUp)}>
                     <h1 className={css(signUpStyles.formTitle)}>Sign Up</h1>
@@ -39,6 +48,7 @@ export default class SignUp extends Component {
                 </div>
             </div>
             {this.state.displayLogIn && <LogIn />}
+            {this.state.displayHomePage && <LandingPage />}
 			</div>
         )
     }
