@@ -93,7 +93,7 @@ const logInStyles = StyleSheet.create({
         fontFamily: "'Nunito Sans', sans-serif",
         '@media (max-width: 950px)': {
             width: "60%",
-            marginTop: "30%",
+            marginTop: "40%",
         },
     },
     formTitle: {
@@ -143,6 +143,7 @@ const logInStyles = StyleSheet.create({
         fontStyle: "italic",
         ':hover': {
             color: "#f4f8f7",
+            cursor: "pointer",
         },
     },
     rememberMe: {
@@ -181,6 +182,8 @@ const logInStyles = StyleSheet.create({
         marginLeft: "1rem",
         ':hover': {
             color: "#008d7f",
+            cursor: "pointer",
         },
     },
+    
 });

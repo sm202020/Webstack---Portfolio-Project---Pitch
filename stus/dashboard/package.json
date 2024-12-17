@@ -41,6 +41,8 @@
     "@babel/runtime": "^7.26.0",
     "aphrodite": "^2.4.0",
     "fetch-mock": "^12.2.0",
+    "firebase": "^11.1.0",
+    "firebase-tools": "^13.29.1",
     "immutable": "^5.0.3",
     "inline-source-map": "^0.6.3",
     "jquery": "^3.7.1",

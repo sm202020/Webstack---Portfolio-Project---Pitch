@@ -3,13 +3,15 @@ import { StyleSheet, css } from 'aphrodite';
 import LogIn from './logIn';
 import SignUp from './signup';
 import Header from '../Header/header';
+import LandingPage from '../LandingPage/landingPage';
 
 export default class ForgotPassword extends Component {
     constructor(props) {
         super(props);
         this.handleLogIn = this.handleLogIn.bind(this);
         this.handleSignUp = this.handleSignUp.bind(this);
-        this.state = { displayLogIn: false, displaySignUp: false }
+        this.handleHomePage = this.handleHomePage.bind(this);
+        this.state = { displayLogIn: false, displaySignUp: false, dispalyHomePage: false };
     }
 
     handleLogIn() {
@@ -20,10 +22,16 @@ export default class ForgotPassword extends Component {
         this.setState({ displaySignUp: true})
     }
 
+    handleHomePage() {
+        this.setState({ dispalyHomePage: true });
+    }
+
     render() {
         return (
             <div>
-                <Header />
+                <div onClick={this.handleHomePage}>
+                    <Header />
+                </div>
             <div className={css(forgorPassStyles.container)}>
                 <div className={css(forgorPassStyles.forgotP)}>
                     <h1 className={css(forgorPassStyles.formTitle)}>Forgot Password</h1>
@@ -44,6 +52,7 @@ export default class ForgotPassword extends Component {
                 </div>
                 {this.state.displayLogIn && <LogIn />};
                 {this.state.displaySignUp && <SignUp />};
+                {this.state.dispalyHomePage && <LandingPage />};
 			</div>
         )
     }
@@ -74,7 +83,7 @@ const forgorPassStyles = StyleSheet.create({
         fontFamily: "'Nunito Sans', sans-serif",
         '@media (max-width: 950px)': {
             width: "60%",
-            marginTop: "30%",
+            marginTop: "40%",
         },
     },
     formTitle: {
@@ -142,6 +151,7 @@ const forgorPassStyles = StyleSheet.create({
         marginLeft: "1rem",
         ':hover': {
             color: "#008d7f",
+            cursor: "pointer",
         },
     },
 })
