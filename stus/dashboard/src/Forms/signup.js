@@ -1,26 +1,60 @@
-import React, { Component } from 'react';
+import React, { Component,  } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import LogIn from './logIn';
 import Header from "../Header/header";
 import LandingPage from '../LandingPage/landingPage';
-
+import { db } from "../../config/firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
 
 export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.handleLogIn = this.handleLogIn.bind(this);
         this.handleHomePage = this.handleHomePage.bind(this);
-        this.state = { displayLogIn: false, displayHomePage: false};
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.createUser = this.createUser.bind(this);
+        this.state = { name: "", email: "",
+                        password: "", confirmPassword: "",
+                        displayLogIn: false, displayHomePage: false
+                    };
     }
+    
+    
+    async createUser(event) {
+        event.preventDefault();
+       const { name, email, password, confirmPassword } = this.state;
+       if (password !== confirmPassword) {
+           alert("Passwords do not match");
+           return;
+       }
+       try {
+           await addDoc(collection(db, "backends"), { name, email, password });
+           alert("SignUp successful");
+       }
+       catch(error) {
+           console.error(`Error from createUser: ${error.message}`);
+       }
+    }
+    
 
     handleLogIn() {
         this.setState({ displayLogIn: true });
     }
 
     handleHomePage() {
-        this.setState({displayHomePage: true});
+        this.setState({ displayHomePage: true });
     }
+
+    handleInputChange(event) {
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    }
+
+    
     render() {
+        const { name, email, password, confirmPassword, displayLogIn, displayHomePage } = this.state;
+
         return (
             <div>
                 <div onClick={this.handleHomePage}>
@@ -30,12 +64,12 @@ export default class SignUp extends Component {
             <div className={css(signUpStyles.container)}>
                 <div className={css(signUpStyles.signUp)}>
                     <h1 className={css(signUpStyles.formTitle)}>Sign Up</h1>
-				<form action="#">
+				<form onSubmit={this.createUser}>
 					<div className={css(signUpStyles.center)}>
-						<input className={css(signUpStyles.inputText)} type="text" placeholder="Full Name" />
-						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="email" placeholder="Email Address" />
-						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="password" placeholder="Password" />
-						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="password" placeholder="Confirm Password" />
+						<input className={css(signUpStyles.inputText)} type="text" placeholder="Full Name" name='name' value={name} onChange={this.handleInputChange} />
+						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="email" placeholder="Email Address" name='email' value={email} onChange={this.handleInputChange} />
+						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="password" placeholder="Password" name='password' value={password} onChange={this.handleInputChange} />
+						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="password" placeholder="Confirm Password" name='confirmPassword' value={confirmPassword} onChange={this.handleInputChange} />
 					</div>
 					<div className={css(signUpStyles.center, signUpStyles.mt20)}>
 						<input className={css(signUpStyles.submitBtn)} type="submit" value="SignUp" />
@@ -47,8 +81,8 @@ export default class SignUp extends Component {
 				</p>
                 </div>
             </div>
-            {this.state.displayLogIn && <LogIn />}
-            {this.state.displayHomePage && <LandingPage />}
+            {displayLogIn && <LogIn />}
+            {displayHomePage && <LandingPage />}
 			</div>
         )
     }
