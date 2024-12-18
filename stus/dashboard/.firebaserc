@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "stus-task-manager",
+    "stus_trial": "stus-task-manager",
+    "development": "stus-task-manager"
+  },
+  "targets": {},
+  "etags": {}
+}
