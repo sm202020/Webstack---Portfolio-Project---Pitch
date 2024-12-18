@@ -4,6 +4,9 @@ import SignUp from "./signup";
 import Header from "../Header/header";
 import LandingPage from "../LandingPage/landingPage";
 import ForgotPassword from "./forgotPassword";
+import { auth } from '../../config/firebaseConfig';
+import { signInWithEmailAndPassword } from 'firebase/auth'
+//import { collection, getDocs } from "firebase/firestore";
 
 export default class LogIn extends Component {
     constructor(props) {
@@ -11,7 +14,28 @@ export default class LogIn extends Component {
         this.handleSignUp = this.handleSignUp.bind(this);
         this.handleHomePage = this.handleHomePage.bind(this);
         this.handleForgotPassword = this.handleForgotPassword.bind(this);
-        this.state = { dispalySignUp: false, displayHome: false, displayForgotPassword: false};
+        this.handleLogInInputChange = this.handleLogInInputChange.bind(this);
+        this.userLogIn = this.userLogIn.bind(this);
+        this.state = { email: "", password: "",
+                    dispalySignUp: false, displayHome: false,
+                    displayForgotPassword: false};
+    }
+
+    async userLogIn(event) {
+        event.preventDefault();
+        const { email, password } = this.state;
+        await signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log(userCredential);
+            alert(`${email} logged in succesfully`);
+        })
+        .catch((error) => alert(error.message));
+    }
+
+    handleLogInInputChange(event) {
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
     }
 
     handleSignUp() {
@@ -26,6 +50,8 @@ export default class LogIn extends Component {
     }
 
     render() {
+
+        const { email, password } = this.state;
         return (
             <div>
                 <div onClick={this.handleHomePage}> 
@@ -34,10 +60,10 @@ export default class LogIn extends Component {
             <div className={css(logInStyles.logInContainer)}>
                 <div className={css(logInStyles.logIn)}>
                     <h1 className={css(logInStyles.formTitle)}>Login</h1>
-                    <form action="#">
+                    <form onSubmit={this.userLogIn}>
                         <div className={css(logInStyles.center)}>
-				    		<input id="LoginEmail" className={css(logInStyles.inputText)}  type="email" placeholder="Email Address" /> 
-				    		<input id="LoginPassword" className={css([logInStyles.inputText, logInStyles.mt10])} type="password" placeholder="Password" />
+				    		<input  className={css(logInStyles.inputText)}  type="email" placeholder="Email Address" name="email" value={email} onChange={this.handleLogInInputChange} /> 
+				    		<input  className={css([logInStyles.inputText, logInStyles.mt10])} type="password" placeholder="Password" name="password" value={password} onChange={this.handleLogInInputChange} />
 				    	</div>
                         <div className={css([logInStyles.passRem, logInStyles.mt10])}>
 				    		<div>
