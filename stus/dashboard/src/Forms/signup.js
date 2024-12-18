@@ -18,8 +18,7 @@ export default class SignUp extends Component {
                         displayLogIn: false, displayHomePage: false
                     };
     }
-    
-    
+   
     async createUser(event) {
         event.preventDefault();
        const { name, email, password, confirmPassword } = this.state;
@@ -60,6 +59,7 @@ export default class SignUp extends Component {
                 <div onClick={this.handleHomePage}>
                     <Header />
                 </div>
+                
 
             <div className={css(signUpStyles.container)}>
                 <div className={css(signUpStyles.signUp)}>
@@ -77,7 +77,7 @@ export default class SignUp extends Component {
 				</form>
 			    <p className={css([signUpStyles.center, signUpStyles.mt20, signUpStyles.Acct])}>
 					Already have an account? 
-					<a onClick={this.handleLogIn} className={css(signUpStyles.AcctLink)} href="#">Login now</a>
+					<a  className={css(signUpStyles.AcctLink)} onClick={this.handleLogIn}>Login now</a>
 				</p>
                 </div>
             </div>
