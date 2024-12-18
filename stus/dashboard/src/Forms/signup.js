@@ -3,8 +3,9 @@ import { StyleSheet, css } from 'aphrodite';
 import LogIn from './logIn';
 import Header from "../Header/header";
 import LandingPage from '../LandingPage/landingPage';
-import { db } from "../../config/firebaseConfig";
+import { db, auth } from "../../config/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -12,13 +13,22 @@ export default class SignUp extends Component {
         this.handleLogIn = this.handleLogIn.bind(this);
         this.handleHomePage = this.handleHomePage.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.userSignUp = this.userSignUp.bind(this);
         this.createUser = this.createUser.bind(this);
         this.state = { name: "", email: "",
                         password: "", confirmPassword: "",
-                        displayLogIn: false, displayHomePage: false
+                        displayLogIn: false, displayHomePage: false,
+                        signUpSuccess: false
                     };
     }
-   
+
+     handleSubmit(event) {
+        event.preventDefault();
+        this.userSignUp(event);
+        this.createUser(event);
+    }
+
     async createUser(event) {
         event.preventDefault();
        const { name, email, password, confirmPassword } = this.state;
@@ -31,10 +41,24 @@ export default class SignUp extends Component {
            alert("SignUp successful");
        }
        catch(error) {
-           console.error(`Error from createUser: ${error.message}`);
+           alert(`Error from createUser: ${error.message}`);
        }
     }
-    
+
+    async userSignUp(event) {
+        event.preventDefault();
+        const { email, password } = this.state;
+        await createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            alert("SignUp successfully");
+            this.setState({ signUpSuccess: true });
+        })
+        .catch((error) => {
+            alert(`Error: ${error.message}`);
+        });
+    }
 
     handleLogIn() {
         this.setState({ displayLogIn: true });
@@ -52,7 +76,12 @@ export default class SignUp extends Component {
 
     
     render() {
-        const { name, email, password, confirmPassword, displayLogIn, displayHomePage } = this.state;
+        const { name, email, password, confirmPassword,
+            displayLogIn, displayHomePage, signUpSuccess } = this.state;
+
+        if (signUpSuccess) {
+            return <LogIn />
+        }
 
         return (
             <div>
@@ -64,7 +93,7 @@ export default class SignUp extends Component {
             <div className={css(signUpStyles.container)}>
                 <div className={css(signUpStyles.signUp)}>
                     <h1 className={css(signUpStyles.formTitle)}>Sign Up</h1>
-				<form onSubmit={this.createUser}>
+				<form onSubmit={this.handleSubmit}>
 					<div className={css(signUpStyles.center)}>
 						<input className={css(signUpStyles.inputText)} type="text" placeholder="Full Name" name='name' value={name} onChange={this.handleInputChange} />
 						<input className={css([signUpStyles.inputText, signUpStyles.mt10])} type="email" placeholder="Email Address" name='email' value={email} onChange={this.handleInputChange} />

@@ -1,0 +1,18 @@
+async createUser(event) {
+        event.preventDefault();
+       const { name, email, password, confirmPassword } = this.state;
+       if (password !== confirmPassword) {
+           alert("Passwords do not match");
+           return;
+       }
+       try {
+           await addDoc(collection(db, "backends"), { name, email, password });
+           alert("SignUp successful");
+       }
+       catch(error) {
+           console.error(`Error from createUser: ${error.message}`);
+       }
+    }
+
+
+this.createUser = this.createUser.bind(this);
