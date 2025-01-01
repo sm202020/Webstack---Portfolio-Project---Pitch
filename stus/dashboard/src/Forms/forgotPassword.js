@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import LogIn from './logIn';
-import SignUp from './signup';
+import { Navigate } from 'react-router-dom';
 import Header from '../Header/header';
-import LandingPage from '../LandingPage/landingPage';
+import { auth } from '../../config/firebaseConfig';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 export default class ForgotPassword extends Component {
     constructor(props) {
@@ -11,33 +11,66 @@ export default class ForgotPassword extends Component {
         this.handleLogIn = this.handleLogIn.bind(this);
         this.handleSignUp = this.handleSignUp.bind(this);
         this.handleHomePage = this.handleHomePage.bind(this);
-        this.state = { displayLogIn: false, displaySignUp: false, dispalyHomePage: false };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
+        this.state = { email: "", redirectToLogIn: false, redirectToSignUp: false, redirectToHomePage: false };
     }
 
+    async resetPassword(event) {
+        event.preventDefault();
+        const { email } = this.state;
+        await sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert(`Password resent sent to ${email}`);
+        })
+        .catch((error) => {
+            alert(`Error ${error.code}: ${error.message}`);
+        });
+    }
+
+    handleInputChange(event) {
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    }
     handleLogIn() {
-        this.setState({ displayLogIn: true });
+        this.setState({ redirectToLogIn: true });
     }
 
     handleSignUp() {
-        this.setState({ displaySignUp: true})
+        this.setState({ redirectToSignUp: true})
     }
 
     handleHomePage() {
-        this.setState({ dispalyHomePage: true });
+        this.setState({ redirectToHomePage: true });
     }
 
     render() {
+            const { email, redirectToHomePage, redirectToLogIn, redirectToSignUp } = this.state;
+
+            if (redirectToHomePage) {
+                return <Navigate to='/' />;
+            }
+
+            if (redirectToLogIn) {
+                return <Navigate to='/login' />;
+            }
+
+            if (redirectToSignUp) {
+                return <Navigate to='/signup' />;
+            }
+
         return (
             <div>
-                <div onClick={this.handleHomePage}>
-                    <Header />
+                <div>
+                    <Header onHeaderClick={this.handleHomePage}/>
                 </div>
             <div className={css(forgorPassStyles.container)}>
                 <div className={css(forgorPassStyles.forgotP)}>
                     <h1 className={css(forgorPassStyles.formTitle)}>Forgot Password</h1>
-				<form action="">
+				<form onSubmit={this.resetPassword}>
 					<div className={css(forgorPassStyles.center, forgorPassStyles.mt20)}>
-						<input className={css(forgorPassStyles.inputText)} type="email" id="forgotPassEmail" placeholder="Email Address" />
+						<input className={css(forgorPassStyles.inputText)} type="email" name='email' value={email} placeholder="Email Address"  onChange={this.handleInputChange}/>
 					</div>
 					<div className={css(forgorPassStyles.center, forgorPassStyles.mt20)}> 
 						<input className={css(forgorPassStyles.submitBtn)} type="submit" value="Reset Password" id="PasswordResetBtn" />
@@ -50,9 +83,6 @@ export default class ForgotPassword extends Component {
 				</p>
                 </div>
                 </div>
-                {this.state.displayLogIn && <LogIn />};
-                {this.state.displaySignUp && <SignUp />};
-                {this.state.dispalyHomePage && <LandingPage />};
 			</div>
         )
     }
