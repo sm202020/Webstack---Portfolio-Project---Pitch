@@ -1,8 +1,7 @@
 import React, { Component,  } from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import LogIn from './logIn';
+import { Navigate } from 'react-router-dom';
 import Header from "../Header/header";
-import LandingPage from '../LandingPage/landingPage';
 import { db, auth } from "../../config/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -11,15 +10,15 @@ export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.handleLogIn = this.handleLogIn.bind(this);
-        this.handleHomePage = this.handleHomePage.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.userSignUp = this.userSignUp.bind(this);
         this.createUser = this.createUser.bind(this);
+        this.handleRedirectToHome = this.handleRedirectToHome.bind(this);
         this.state = { name: "", email: "",
                         password: "", confirmPassword: "",
-                        displayLogIn: false, displayHomePage: false,
-                        signUpSuccess: false
+                        redirectToLogIn: false,
+                        signUpSuccess: false, redirectToHome: false,
                     };
     }
 
@@ -27,6 +26,11 @@ export default class SignUp extends Component {
         event.preventDefault();
         this.userSignUp(event);
         this.createUser(event);
+    }
+
+    handleRedirectToHome(event) {
+        event.preventDefault();
+        this.setState({ redirectToHome: true });
     }
 
     async createUser(event) {
@@ -37,8 +41,8 @@ export default class SignUp extends Component {
            return;
        }
        try {
-           await addDoc(collection(db, "backends"), { name, email, password });
-           alert("SignUp successful");
+           await addDoc(collection(db, `${email}`), { name, email, password });
+           this.setState({ signUpSuccess: true });
        }
        catch(error) {
            alert(`Error from createUser: ${error.message}`);
@@ -56,17 +60,15 @@ export default class SignUp extends Component {
             this.setState({ signUpSuccess: true });
         })
         .catch((error) => {
-            alert(`Error: ${error.message}`);
+            alert(`Error ${error.code}: ${error.message}`);
         });
     }
 
     handleLogIn() {
-        this.setState({ displayLogIn: true });
+        this.setState({ redirectToLogIn: true });
     }
 
-    handleHomePage() {
-        this.setState({ displayHomePage: true });
-    }
+   
 
     handleInputChange(event) {
         event.preventDefault();
@@ -77,16 +79,24 @@ export default class SignUp extends Component {
     
     render() {
         const { name, email, password, confirmPassword,
-            displayLogIn, displayHomePage, signUpSuccess } = this.state;
+             signUpSuccess, redirectToHome, redirectToLogIn } = this.state;
 
         if (signUpSuccess) {
-            return <LogIn />
+            return <Navigate to='/login' />;
+        }
+
+        if (redirectToHome) {
+            return <Navigate to='/' />;
+        }
+
+        if (redirectToLogIn) {
+            return <Navigate to='/login' />;
         }
 
         return (
             <div>
-                <div onClick={this.handleHomePage}>
-                    <Header />
+                <div>
+                    <Header onHeaderClick={this.handleRedirectToHome}/>
                 </div>
                 
 
@@ -110,8 +120,6 @@ export default class SignUp extends Component {
 				</p>
                 </div>
             </div>
-            {displayLogIn && <LogIn />}
-            {displayHomePage && <LandingPage />}
 			</div>
         )
     }

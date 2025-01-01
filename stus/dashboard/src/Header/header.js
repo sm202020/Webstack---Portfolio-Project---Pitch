@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from '../assets/logo.jpg';
 import { StyleSheet, css } from 'aphrodite';
+import PropTypes from 'prop-types';
 
-export default class Header extends Component {
-    render() {
+export default function Header({ onHeaderClick }) {
     return (
-        <div className={css(headerStyles.landingPage)}>
+        <div onClick={onHeaderClick} className={css(headerStyles.landingPage)}>
             <img src={logo} alt='logo' className={css(headerStyles.image)} />
             <h1 className={css(headerStyles.heading)}>STUS</h1>
             <p className={css(headerStyles.tagline)}>Your planning buddy</p>
         </div>
     )
-    }
 }
+
+Header.propTypes = {
+    onHeaderClick: PropTypes.func.isRequired,
+};
 
 const headerStyles = StyleSheet.create({
     landingPage: {
