@@ -151,10 +151,14 @@ STUS-Task-Management-App/
 
 └── README.md 
 
-Contributers
+CONTRIBUTOS
+
 Ojewande Taofeek
+
 Atikunaja
+
 Udoozy
+
 sm202020 Smith Mebawondu
 
 
