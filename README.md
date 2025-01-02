@@ -1,21 +1,18 @@
-React Task Management App 
+Stus Task Management App 
 
-A user-friendly task management application built with React. This app allows users to create, edit, delete, and organize tasks efficiently, helping to boost productivity and manage time effectively. 
+Our project focus on delivering a digital work space that meets the essential needs of user's while managing tasks, organize tasks, and tracking progress.It's a user-friendly task management application built with React. This app allows users to create, edit, delete, and organize tasks efficiently, helping to boost productivity and manage time effectively.
 
-Features 
-
-• Add Tasks: Create new tasks with titles, descriptions, and deadlines. 
-
-• Edit Tasks: Update existing task details. 
-
-• Delete Tasks: Remove completed or unnecessary tasks. 
-
-• Task Categorization: Organize tasks into categories or priorities (e.g., work, personal, high priority). 
-
-• Responsive Design: Fully responsive UI for desktops, tablets, and mobile devices. 
-
-• Local Storage: Save tasks locally so that data persists even after refreshing the page. 
-
+CORE FEATURES
+1) User Authenthications:
+- Basic signup/login  functionality using email or third party services
+-2) Task creation and task management 
+- create tasks with title and description
+- set due dates for task
+- mark tasks as completed or pending
+-3) Task list view
+- display list of tasks grouped by status. e.g "pending" and "completed"
+-4) Notifications
+- Simple reminders for tasks with due dates
 Tech Stack 
 
 Frontend:
