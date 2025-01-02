@@ -5,12 +5,15 @@ Our project focus on delivering a digital work space that meets the essential ne
 CORE FEATURES
 1) User Authenthications:
 - Basic signup/login  functionality using email or third party services
+  
 -2) Task creation and task management 
 - create tasks with title and description
 - set due dates for task
 - mark tasks as completed or pending
+  
 -3) Task list view
 - display list of tasks grouped by status. e.g "pending" and "completed"
+  
 -4) Notifications
 - Simple reminders for tasks with due dates
 Tech Stack 
