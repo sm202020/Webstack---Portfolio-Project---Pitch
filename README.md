@@ -40,7 +40,8 @@ Follow these steps to get the app running locally:
 
 • CLONE THE REPOSITORY:        
 
-git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git                                                    
+git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git        
+
 cd  Webstack---Portfolio-Project---Pitch 
 
 . INSTALL DEPENDENCIES: 
