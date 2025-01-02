@@ -3,7 +3,7 @@ import "./NotificationPage.css";
 
 const NotificationPage = () => {
   // State for notifications
-  const [notifications, setNotifications] = useState([
+  const [notifications, setNotifications] = Component([
     {
       id: 1,
       message: "New task added: Project Planning",
