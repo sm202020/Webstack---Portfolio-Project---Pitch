@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "./NotificationPage.css";
 
 const NotificationPage = () => {
@@ -35,8 +35,7 @@ const NotificationPage = () => {
       )
     );
   };
-
-  return (
+	return (	  
     <div className="notification-page">
       <h2>Notifications</h2>
       <ul className="notification-list">
