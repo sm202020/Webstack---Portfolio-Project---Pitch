@@ -18,7 +18,8 @@ Features
 
 Tech Stack 
 
-• Frontend: Frontend:
+Frontend:
+
 •  1. Canva 
 • 2. React.js 
 • 3. Webpack 
@@ -26,32 +27,33 @@ Tech Stack
 • 5. HTML 
 • 6. CSS 
 • 7. Aphrodite
+
 Backend: 
 
 • Firebase (for auth and data storage) 
 
 • JSON-server (REST API) 
 
-Installation and Setup 
+INSTALLATION AND SETUP
 
 Follow these steps to get the app running locally: 
 
-• Clone the repository:        
+• CLONE THE REPOSITORY:        
 
 git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git                                                    
 cd  Webstack---Portfolio-Project---Pitch 
 
-.      Install dependencies: 
+. INSTALL DEPENDENCIES: 
 
 npm install 
 
-• Run the app: 
+• RUN THE APP: 
 
 npm start 
 
 The app will be available at http://localhost:3000. 
 
-• Build for production (optional): 
+• BUILD FOR PRODUCTION (optional): 
 
 npm run build 
 
@@ -69,7 +71,8 @@ Usage
 
 DEMO
 
-Folder Structure
+FOLDER STRUCTURE
+
 STUS-Task-Management-App/
 ├── Config/ 
   |   ├── firebaseConfig.js/ 
