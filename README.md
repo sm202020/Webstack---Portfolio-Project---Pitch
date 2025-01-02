@@ -74,43 +74,81 @@ DEMO
 FOLDER STRUCTURE
 
 STUS-Task-Management-App/
+
 ├── Config/ 
+
   |   ├── firebaseConfig.js/ 
+  
   |   ├── setupTest.js/ 
+  
   |   ├── webpack.config.js/ 
+  
 ├── dist/ 
+
   |   ├── favicon.ico/ 
+  
   |   ├── index.html/ 
+  
 ├── src/ 
+
   |   ├── components/ 
+  
 │ │ ├── App 
+
 │ │ ├── Footer
+
 │ │ ├── Forms
+
 │ │ ├── Header
+
 │ │ ├── LandingPage
+
 │ │ ├── User_Dashboard
+
 │ │ ├── assets
+
 │ │ ├── utils
+
 │ ├── context/ 
+
 │ │ ├── index.js 
+
 │ ├── pages/ 
+
 │ │ ├── HomePage.js 
+
 │ │ ├── AboutPage.js
+
 │ │ ├── LoginPage.js 
+
 │ │ ├── SignupPage.js 
+
 │ │ ├── ForgotPasswordPage.js 
+
 │ ├── App.js 
+
 │ ├── index.js 
+
 │ ├── styles/ 
+
 │ │ ├── App.css 
+
 │ └── utils/ 
+
 │ ├── helpers.js 
+
 ├── .babelrc
+
 ├── .firebaserc
+
 ├── .firebase.json
+
 ├── firestore.indexes.json
+
 ├── .firestore.rules
+
 ├── package.json 
+
 └── README.md 
 
 Contributers
