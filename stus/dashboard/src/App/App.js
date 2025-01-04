@@ -7,9 +7,9 @@ import UserDashboard from '../User_Dashboard/UserDashboard';
 import ForgotPassword from '../Forms/forgotPassword';
 import NotificationPage from '../User_Dashboard/NotificationPage';
 
-export default function App({ router: RouterComponent = Router}) {
+export default function App({ router: RouterComponent = Router, initialEntries }) {
     return (
-        <RouterComponent>
+        <RouterComponent initialEntries={initialEntries}>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LogIn />} />
