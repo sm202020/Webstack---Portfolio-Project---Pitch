@@ -7,9 +7,9 @@ import UserDashboard from '../User_Dashboard/UserDashboard';
 import ForgotPassword from '../Forms/forgotPassword';
 import NotificationPage from '../User_Dashboard/NotificationPage';
 
-export default function App() {
+export default function App({ router: RouterComponent = Router}) {
     return (
-        <Router>
+        <RouterComponent>
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LogIn />} />
@@ -18,6 +18,6 @@ export default function App() {
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
                 <Route path="/notifications" element={<NotificationPage />} />
             </Routes>
-        </Router>
+        </RouterComponent>
     );
 }
