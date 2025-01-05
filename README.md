@@ -19,26 +19,26 @@ It's a user-friendly task management application built with React. This app allo
 - Simple reminders for tasks with due dates
 Tech Stack 
 
-<h1>Frontend/<h1></h1>
+<h1>Frontend</h1>
 1. Canva 2. React.js 3. Webpack 4. Babel 5. HTML 6. CSS 7. Aphrodite
 
-<h1>Backend/<h1> 
+<h1>Backend</h1> 
 
 Firebase (for auth and data storage) 
 
 JSON-server (REST API) 
 
-<h1>INSTALLATION AND SETUP/<h1>
+<h1>INSTALLATION AND SETUP</h1>
 
 Follow these steps to get the app running locally: 
 
-<h1>CLONE THE REPOSITORY/<h1>        
+<h1>CLONE THE REPOSITORY</h1>        
 
 git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git        
 
 cd  Webstack---Portfolio-Project---Pitch 
 
-<h1>INSTALL DEPENDENCIES/<h1> 
+<h1>INSTALL DEPENDENCIES</h1>
 
 npm install 
 
