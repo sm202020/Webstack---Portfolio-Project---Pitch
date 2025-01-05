@@ -20,19 +20,13 @@ It's a user-friendly task management application built with React. This app allo
 Tech Stack 
 
 <h1>Frontend/<h1>
-1. Canva 
-2. React.js 
-3. Webpack 
-4. Babel 
-5. HTML 
-6. CSS 
-7. Aphrodite
+1. Canva 2. React.js 3. Webpack 4. Babel 5. HTML 6. CSS 7. Aphrodite
 
 <h1>Backend/<h1> 
 
-=>Firebase (for auth and data storage) 
+Firebase (for auth and data storage) 
 
-=>JSON-server (REST API) 
+JSON-server (REST API) 
 
 <h1>INSTALLATION AND SETUP/<h1>
 
