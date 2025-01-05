@@ -2,7 +2,7 @@ import React from 'react';
 import { auth } from '../../config/firebaseConfig';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import './Header.css';
+import './styles/Header.css';
 
 const Header = ({ onChangePage }) => {
   const navigate = useNavigate();

@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import TaskList from './TaskList';
 import NewTaskButton from './NewTaskButton';
-import './Dashboard.css';
+import './styles/Dashboard.css';
 
 const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus, onEditTask, onDeleteTask, onViewTask }) => {
   const navigate = useNavigate();
