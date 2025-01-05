@@ -7,7 +7,7 @@ import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import NotificationPage from './NotificationPage';
 import TaskModal from './TaskModal';
-import './UserDashboard.css';
+import './styles/UserDashboard.css';
 
 export default function UserDashboard() {
   const [tasks, setTasks] = useState([]);

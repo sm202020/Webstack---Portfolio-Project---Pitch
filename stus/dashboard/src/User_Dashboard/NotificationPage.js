@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../config/firebaseConfig';
-import './NotificationPage.css';
+import './styles/NotificationPage.css';
 
 const NotificationPage = ({ userEmail }) => {
   const [notifications, setNotifications] = useState([]);
@@ -12,7 +12,7 @@ const NotificationPage = ({ userEmail }) => {
         const taskSnapshot = await getDocs(collection(db, `${userEmail}`));
         const tasks = taskSnapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }))
-          .filter((task) => task.status === 'in_progress' && !task.read); // Only fetch unread notifications
+          .filter((task) => task.status === 'in_progress' && !task.read); 
         setNotifications(tasks);
       } catch (error) {
         console.error('Error fetching notifications:', error);
@@ -25,7 +25,7 @@ const NotificationPage = ({ userEmail }) => {
   const markAsRead = async (notificationId) => {
     try {
       const notificationRef = doc(db, `${userEmail}`, notificationId);
-      await updateDoc(notificationRef, { read: true }); // Update the 'read' status in Firestore
+      await updateDoc(notificationRef, { read: true }); 
       setNotifications((prevNotifications) =>
         prevNotifications.filter((notification) => notification.id !== notificationId)
       );

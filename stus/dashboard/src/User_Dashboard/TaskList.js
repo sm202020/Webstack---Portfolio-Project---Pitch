@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskList.css';
+import './styles/TaskList.css';
 
 const TaskList = ({ title, tasks, onUpdateStatus, onEditTask, onDeleteTask, onViewTask }) => {
   const calculateTimeLeft = (deadline) => {

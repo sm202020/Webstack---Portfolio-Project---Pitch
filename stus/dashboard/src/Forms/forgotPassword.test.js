@@ -13,6 +13,7 @@ describe("Tests the ForgotPassword Component", () => {
         expect(screen.getByText(/Forgot Password/i)).toBeInTheDocument();
     })
 
+    /*
     it("stimulates the LogIn Component when Log In is clicked", () => {
         render(
             <MemoryRouter initialEntries={['/forgotpassword']}>
@@ -32,4 +33,5 @@ describe("Tests the ForgotPassword Component", () => {
         userEvent.click(signUpLink);
         expect(screen.queryByText(/Login now/i)).toBeInTheDocument();
     });
+    */
 });

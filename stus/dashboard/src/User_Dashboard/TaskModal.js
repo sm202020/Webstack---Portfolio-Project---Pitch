@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './TaskModal.css';
+import './styles/TaskModal.css';
 
 const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
   const [title, setTitle] = useState('');
