@@ -1,20 +1,21 @@
 import React from 'react';
 import './TaskList.css';
 
-const TaskList = ({ title, tasks, onUpdateStatus }) => {
+const TaskList = ({ title, tasks, onUpdateStatus, onEditTask, onDeleteTask, onViewTask }) => {
   return (
     <div className="task-list">
       <h3>{title}</h3>
-      <ul>
-        {tasks.map(task => (
-          <li key={task.id}>
-            {task.title}
-            <button onClick={() => onUpdateStatus(task.id)}>
-              {task.status === 'in_progress' ? 'Complete' : 'Reopen'}
-            </button>
-          </li>
-        ))}
-      </ul>
+      {tasks.map(task => (
+        <div key={task.id} className="task-item">
+          <h4>{task.title}</h4>
+          <div className="task-actions">
+            <button onClick={() => onUpdateStatus(task.id)}>Toggle Status</button>
+            <button onClick={() => onEditTask(task)}>Edit</button>
+            <button onClick={() => onDeleteTask(task.id)}>Delete</button>
+            <button onClick={() => onViewTask(task)}>View</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

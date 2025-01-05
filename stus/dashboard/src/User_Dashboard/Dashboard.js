@@ -6,8 +6,7 @@ import TaskList from './TaskList';
 import NewTaskButton from './NewTaskButton';
 import './Dashboard.css';
 
-
-const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus }) => {
+const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus, onEditTask, onDeleteTask, onViewTask }) => {
   const navigate = useNavigate();
 
   const inProgressTasks = tasks.filter(task => task.status === 'in_progress');
@@ -50,15 +49,21 @@ const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus }) => {
       </div>
       <NewTaskButton onClick={onOpenModal} />
       <div className="task-lists">
-        <TaskList 
-          title="In Progress Tasks" 
+        <TaskList
+          title="In Progress Tasks"
           tasks={inProgressTasks}
           onUpdateStatus={(taskId) => onUpdateTaskStatus(taskId, 'completed')}
+          onEditTask={onEditTask}
+          onDeleteTask={onDeleteTask}
+          onViewTask={onViewTask}
         />
-        <TaskList 
-          title="Completed Tasks" 
+        <TaskList
+          title="Completed Tasks"
           tasks={completedTasks}
           onUpdateStatus={(taskId) => onUpdateTaskStatus(taskId, 'in_progress')}
+          onEditTask={onEditTask}
+          onDeleteTask={onDeleteTask}
+          onViewTask={onViewTask}
         />
       </div>
     </main>

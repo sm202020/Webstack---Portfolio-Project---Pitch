@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TaskModal.css';
 
-const TaskModal = ({ onClose, onAddTask }) => {
+const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
+  useEffect(() => {
+    if (taskToEdit) {
+      setTitle(taskToEdit.title);
+      setDescription(taskToEdit.description);
+    }
+  }, [taskToEdit]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTask({ title, description });
+    if (taskToEdit) {
+      onEditTask({ ...taskToEdit, title, description });
+    } else {
+      onAddTask({ title, description });
+    }
     onClose();
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>Add New Task</h2>
+        <h2>{taskToEdit ? 'Edit Task' : 'Add New Task'}</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -30,8 +41,10 @@ const TaskModal = ({ onClose, onAddTask }) => {
             required
           ></textarea>
           <div className="modal-buttons">
-            <button type="submit">Add Task</button>
-            <button type="button" onClick={onClose}>Cancel</button>
+            <button type="submit">{taskToEdit ? 'Update Task' : 'Add Task'}</button>
+            <button type="button" onClick={onClose}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>
@@ -40,3 +53,4 @@ const TaskModal = ({ onClose, onAddTask }) => {
 };
 
 export default TaskModal;
+
