@@ -4,20 +4,23 @@ import './TaskModal.css';
 const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [deadline, setDeadline] = useState('');
 
   useEffect(() => {
     if (taskToEdit) {
       setTitle(taskToEdit.title);
       setDescription(taskToEdit.description);
+      setDeadline(taskToEdit.deadline || '');
     }
   }, [taskToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const taskData = { title, description, deadline: deadline || null };
     if (taskToEdit) {
-      onEditTask({ ...taskToEdit, title, description });
+      onEditTask({ ...taskToEdit, ...taskData });
     } else {
-      onAddTask({ title, description });
+      onAddTask(taskData);
     }
     onClose();
   };
@@ -40,6 +43,12 @@ const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
             onChange={(e) => setDescription(e.target.value)}
             required
           ></textarea>
+          <input
+            type="date"
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+            required={!taskToEdit} // Ensure it's required for new tasks
+          />
           <div className="modal-buttons">
             <button type="submit">{taskToEdit ? 'Update Task' : 'Add Task'}</button>
             <button type="button" onClick={onClose}>
@@ -53,4 +62,3 @@ const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
 };
 
 export default TaskModal;
-

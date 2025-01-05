@@ -59,6 +59,23 @@ export default function UserDashboard() {
     }
   };
 
+  const updateTaskStatus = async (taskId, newStatus) => {
+  const taskToUpdate = tasks.find((task) => task.id === taskId);
+  const updatedTask = {
+    ...taskToUpdate,
+    status: newStatus,
+    deadline: newStatus === 'completed' ? null : taskToUpdate.deadline,
+  };
+
+  try {
+    await updateDoc(doc(db, `${userEmail}`, taskId), updatedTask);
+    setTasks(tasks.map((task) => (task.id === taskId ? updatedTask : task)));
+  } catch (error) {
+    console.error('Error updating task status:', error);
+  }
+};
+
+
   const viewTask = (task) => {
     alert(`Title: ${task.title}\nDescription: ${task.description}`);
   };
@@ -87,10 +104,7 @@ export default function UserDashboard() {
                     setIsModalOpen(true);
                     setTaskToEdit(null); 
                   }}
-                  onUpdateTaskStatus={async (taskId, newStatus) => {
-                    const updatedTask = tasks.find((task) => task.id === taskId);
-                    await editTask({ ...updatedTask, status: newStatus });
-                  }}
+                  onUpdateTaskStatus={updateTaskStatus}
                   onEditTask={(task) => {
                     setTaskToEdit(task);
                     setIsModalOpen(true);

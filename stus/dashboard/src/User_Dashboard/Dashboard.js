@@ -27,7 +27,6 @@ const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus, onEditTask, onDelet
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-white text-2xl font-bold">STUS Dashboard</h1>
           <div>
-            <button onClick={() => navigate('/notifications')} className="text-white mr-4">Notifications</button>
             <button onClick={handleLogout} className="text-white">Logout</button>
           </div>
         </div>
