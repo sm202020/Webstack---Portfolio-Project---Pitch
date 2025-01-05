@@ -27,8 +27,6 @@ It's a user-friendly task management application built with React. This app allo
 
 Firebase (for auth and data storage) 
 
-JSON-server (REST API) 
-
 <h1>INSTALLATION AND SETUP</h1>
 1.Clone the repository with git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git 2. cd  Webstack---Portfolio-Project---Pitch and cd stus/dashboard   3.  install dependencies and npm run start   4. The app will be available at (http://localhost:9001) on a web broswer. 
 
