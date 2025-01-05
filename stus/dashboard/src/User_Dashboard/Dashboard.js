@@ -6,8 +6,7 @@ import TaskList from './TaskList';
 import NewTaskButton from './NewTaskButton';
 import './Dashboard.css';
 
-
-const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus }) => {
+const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus, onEditTask, onDeleteTask, onViewTask }) => {
   const navigate = useNavigate();
 
   const inProgressTasks = tasks.filter(task => task.status === 'in_progress');
@@ -28,7 +27,6 @@ const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus }) => {
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-white text-2xl font-bold">STUS Dashboard</h1>
           <div>
-            <button onClick={() => navigate('/notifications')} className="text-white mr-4">Notifications</button>
             <button onClick={handleLogout} className="text-white">Logout</button>
           </div>
         </div>
@@ -50,15 +48,21 @@ const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus }) => {
       </div>
       <NewTaskButton onClick={onOpenModal} />
       <div className="task-lists">
-        <TaskList 
-          title="In Progress Tasks" 
+        <TaskList
+          title="In Progress Tasks"
           tasks={inProgressTasks}
           onUpdateStatus={(taskId) => onUpdateTaskStatus(taskId, 'completed')}
+          onEditTask={onEditTask}
+          onDeleteTask={onDeleteTask}
+          onViewTask={onViewTask}
         />
-        <TaskList 
-          title="Completed Tasks" 
+        <TaskList
+          title="Completed Tasks"
           tasks={completedTasks}
           onUpdateStatus={(taskId) => onUpdateTaskStatus(taskId, 'in_progress')}
+          onEditTask={onEditTask}
+          onDeleteTask={onDeleteTask}
+          onViewTask={onViewTask}
         />
       </div>
     </main>

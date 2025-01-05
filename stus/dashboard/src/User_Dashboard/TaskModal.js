@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TaskModal.css';
 
-const TaskModal = ({ onClose, onAddTask }) => {
+const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [deadline, setDeadline] = useState('');
+
+  useEffect(() => {
+    if (taskToEdit) {
+      setTitle(taskToEdit.title);
+      setDescription(taskToEdit.description);
+      setDeadline(taskToEdit.deadline || '');
+    }
+  }, [taskToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTask({ title, description });
+    const taskData = { title, description, deadline: deadline || null };
+    if (taskToEdit) {
+      onEditTask({ ...taskToEdit, ...taskData });
+    } else {
+      onAddTask(taskData);
+    }
     onClose();
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>Add New Task</h2>
+        <h2>{taskToEdit ? 'Edit Task' : 'Add New Task'}</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -29,9 +43,17 @@ const TaskModal = ({ onClose, onAddTask }) => {
             onChange={(e) => setDescription(e.target.value)}
             required
           ></textarea>
+          <input
+            type="date"
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+            required={!taskToEdit} // Ensure it's required for new tasks
+          />
           <div className="modal-buttons">
-            <button type="submit">Add Task</button>
-            <button type="button" onClick={onClose}>Cancel</button>
+            <button type="submit">{taskToEdit ? 'Update Task' : 'Add Task'}</button>
+            <button type="button" onClick={onClose}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>
