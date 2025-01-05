@@ -4,8 +4,8 @@ Stus project focus on delivering a digital work space that meets the essential n
 It's a user-friendly task management application built with React. This app allows users to create, edit, delete, and organize tasks efficiently, helping to boost productivity and manage time effectively.
 
 <h1>CORE FEATURES</h1>
-1) User Authenthications:
--> Basic signup/login  functionality using email or third party services
+ 1) User Authenthications:
+ -> Basic signup/login  functionality using email or third party services
   
 2) Task creation and task management 
 -> create tasks with title and description
