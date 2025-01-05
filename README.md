@@ -72,6 +72,10 @@ To get the app running locally, follow these steps:
 The app will be available at **(http://localhost:9001)** on a web broswer. 
 
 ## **DEMO**
+![Homepage](./stus/dashboard/src/assets/homepage.jpg)
+![SignUp Page](./stus/dashboard/src/assets/sign_up_page.jpg)
+![Login Page](./stus/dashboard/src/assets/login_page.jpg)
+![User Dashboard](./stus/dashboard/src/assets/user_dashboard.jpg)
 
 
 ## **CONTRIBUTORS**
