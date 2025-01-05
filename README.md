@@ -1,4 +1,4 @@
-Stus Task Management App 
+<h1>Stus Task Management App</h1> 
 
 Our project focus on delivering a digital work space that meets the essential needs of user's while managing tasks, organize tasks, and tracking progress.It's a user-friendly task management application built with React. This app allows users to create, edit, delete, and organize tasks efficiently, helping to boost productivity and manage time effectively.
 
