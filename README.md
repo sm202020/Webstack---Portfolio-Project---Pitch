@@ -5,19 +5,20 @@ It's a user-friendly task management application built with React. This app allo
 
 <h1>CORE FEATURES</h1>
 1) User Authenthications:
-- Basic signup/login  functionality using email or third party services
+-> Basic signup/login  functionality using email or third party services
   
--2) Task creation and task management 
-- create tasks with title and description
-- set due dates for task
-- mark tasks as completed or pending
+2) Task creation and task management 
+-> create tasks with title and description
+-> set due dates for task
+-> mark tasks as completed or pending
   
--3) Task list view
-- display list of tasks grouped by status. e.g "pending" and "completed"
+3) Task list view
+-> display list of tasks grouped by status. e.g "pending" and "completed"
   
--4) Notifications
-- Simple reminders for tasks with due dates
-Tech Stack 
+4) Notifications
+-> Simple reminders for tasks with due dates
+
+<h1>TECH STACK>/h1> 
 
 <h1>Frontend</h1>
 1. Canva 2. React.js 3. Webpack 4. Babel 5. HTML 6. CSS 7. Aphrodite
