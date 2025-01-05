@@ -6,16 +6,13 @@ import './NotificationPage.css';
 const NotificationPage = ({ userEmail }) => {
   const [notifications, setNotifications] = useState([]);
 
-  const UsersCollectionRef = collection(db, `${userEmail}`);
-
-  // Fetch tasks with 'in_progress' status
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const taskSnapshot = await getDocs(UsersCollectionRef);
+        const taskSnapshot = await getDocs(collection(db, `${userEmail}`));
         const tasks = taskSnapshot.docs
-          .map((task) => ({ id: task.id, ...task.data() }))
-          .filter((task) => task.status === 'in_progress');
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .filter((task) => task.status === 'in_progress' && !task.read); // Only fetch unread notifications
         setNotifications(tasks);
       } catch (error) {
         console.error('Error fetching notifications:', error);
@@ -25,18 +22,34 @@ const NotificationPage = ({ userEmail }) => {
     fetchNotifications();
   }, [userEmail]);
 
-  // Mark a task as read
-  const markAsRead = async (id) => {
+  const markAsRead = async (notificationId) => {
     try {
-      await updateDoc(doc(db, `${userEmail}`, id), { read: true });
+      const notificationRef = doc(db, `${userEmail}`, notificationId);
+      await updateDoc(notificationRef, { read: true }); // Update the 'read' status in Firestore
       setNotifications((prevNotifications) =>
-        prevNotifications.map((notification) =>
-          notification.id === id ? { ...notification, read: true } : notification
-        )
+        prevNotifications.filter((notification) => notification.id !== notificationId)
       );
     } catch (error) {
       console.error('Error marking notification as read:', error);
     }
+  };
+
+  const calculateTimeLeft = (deadline) => {
+    const now = new Date();
+    const target = new Date(deadline);
+    const diff = target - now;
+
+    if (diff <= 0) return 'Deadline passed';
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    if (days === 0 && hours === 0 && minutes === 0) {
+      return 'Deadline passed';
+    }
+
+    return `${days > 0 ? `${days}d ` : ''}${hours > 0 ? `${hours}h ` : ''}${minutes}m remaining`;
   };
 
   return (
@@ -44,14 +57,10 @@ const NotificationPage = ({ userEmail }) => {
       <h2>Notifications</h2>
       <ul className="notification-list">
         {notifications.map((notification) => (
-          <li
-            key={notification.id}
-            className={`notification-item ${notification.read ? 'read' : 'unread'}`}
-          >
-            <p>{notification.title}</p> {/* Display task title */}
-            {!notification.read && (
-              <button onClick={() => markAsRead(notification.id)}>Mark as Read</button>
-            )}
+          <li key={notification.id} className="notification-item">
+            <p>{notification.title}</p>
+            <p>{notification.deadline && calculateTimeLeft(notification.deadline)}</p>
+            <button onClick={() => markAsRead(notification.id)}>Mark as Read</button>
           </li>
         ))}
       </ul>
