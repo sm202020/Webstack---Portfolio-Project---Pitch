@@ -30,7 +30,7 @@ Firebase (for auth and data storage)
 JSON-server (REST API) 
 
 <h1>INSTALLATION AND SETUP</h1>
-1.Clone the repository 2. git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git 3. cd  Webstack---Portfolio-Project---Pitch   4. cd stus/dashboard   5.  install dependencies  6. npm run start   7. The app will be available at (http://localhost:9001). 
+1.Clone the repository with git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git 2. cd  Webstack---Portfolio-Project---Pitch and cd stus/dashboard   3.  install dependencies and npm run start   4. The app will be available at (http://localhost:9001) on a web broswer. 
 
 <h1>DEMO</h1>
 
