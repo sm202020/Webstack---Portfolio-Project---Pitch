@@ -33,51 +33,27 @@ JSON-server (REST API)
 
 Follow these steps to get the app running locally: 
 
-<h1>CLONE THE REPOSITORY</h1>        
-
+Clone the repository        
 git clone https://github.com/sm202020/Webstack--- Portfolio-Project---Pitch.git        
-
-cd  Webstack---Portfolio-Project---Pitch 
-
-<h1>INSTALL DEPENDENCIES</h1>
-
-npm install 
-
-• RUN THE APP: 
-
-npm start 
-
+cd  Webstack---Portfolio-Project---Pitch
+cd stus/dashboard
+install dependencies
+npm run start 
 The app will be available at (http://localhost:9001). 
-
-• BUILD FOR PRODUCTION (optional): 
-
-npm run build 
-
-Usage 
-
-• Add tasks by filling out the task form. 
-
-• Organize tasks into categories or assign deadlines. 
-
-• Edit or delete tasks using the provided action buttons. 
-
-• Filter tasks by category or search for specific tasks. 
-
-• Notifications that notify the user about kickoff meeting, tasks to be completed, priority and timespan. 
 
 <h1>DEMO</h1>
 
- 
 
 <h1>CONTRIBUTOS</h1>
 
-Ojewande Taofeek
+Ojewande Taofeek<taofeekojewande@nda.edu.ng>
+Smith Mebawondu<akinbode4life@gmail.com>
+Agbo Samson Udochukwu<agbo4samson@gmail.com>
+Naja'atu Umar Atiku<najaatiku1@gmail.com>
 
-Atikunaja
 
-Udoozy
 
-sm202020 Smith Mebawondu
+
 
 
 
