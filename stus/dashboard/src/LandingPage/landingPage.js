@@ -13,9 +13,9 @@ export default function LandingPage() {
             <div className={css(lpBodyStyles.homePageContainer)}>
                 <Header />
                 <nav className={css(lpBodyStyles.nav)}>
-                    <button onClick={() => navigate('/aboutus')}>About Us</button>
-                    <button onClick={() => navigate('/login')}>Log In</button>
-                    <button onClick={() => navigate('/signup')}>Sign Up</button>
+                    <button onClick={() => navigate('/aboutus')}  className={css(lpBodyStyles.navButton)}>About Us</button>
+                    <button onClick={() => navigate('/login')} className={css(lpBodyStyles.navButton)}>Log In</button>
+                    <button onClick={() => navigate('/signup')} className={css(lpBodyStyles.navButton)}>Sign Up</button>
                 </nav>
                 <div className={css(lpBodyStyles.lpBody)}>
                     <div>
@@ -103,5 +103,13 @@ const lpBodyStyles = StyleSheet.create({
         display: "flex",
         alignContent: "space-between",
         alignSelf: "center",
+    },
+
+    navButton: {
+        margin: "0 0.5rem",
+        ":hover": {
+            backgroundColor: 'aqua',
+            cursor: "pointer",
+        }
     },
 })

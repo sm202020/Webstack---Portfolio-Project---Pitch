@@ -17,8 +17,8 @@ export default function AboutUs(){
         <>
         <Header onHeaderClick={() => navigate('/')}/>
         <nav className={css(AboutUsStyles.nav)}>
-                    <button onClick={() => navigate('/login')}>Log In</button>
-                    <button onClick={() => navigate('/signup')}>Sign Up</button>
+                    <button onClick={() => navigate('/login')} className={css(AboutUsStyles.navButton)}>Log In</button>
+                    <button onClick={() => navigate('/signup')} className={css(AboutUsStyles.navButton)}>Sign Up</button>
         </nav>
         <div className={css(AboutUsStyles.body)}>
            <header className={css(AboutUsStyles.header)}>
@@ -219,8 +219,12 @@ const AboutUsStyles = StyleSheet.create({
         position: "absolute",
         right: '0',
         top: '2rem',
-        display: "flex",
-        alignContent: "space-between",
-        alignSelf: "center",
+    },
+    navButton: {
+        margin: "0 0.5rem",
+        ":hover": {
+            backgroundColor: 'aqua',
+            cursor: "pointer",
+        }
     },
 })
