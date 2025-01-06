@@ -50,12 +50,12 @@ To get the app running locally, follow these steps:
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/sm202020/Webstack---Portfolio-Project---Pitch
+   git clone https://github.com/sm202020/Webstack-Portfolio-Project
    ```
 
 2. **Navigate to the project directory**
  ```bash
- cd  Webstack---Portfolio-Project---Pitch/stus/dashboard
+ cd  Webstack-Portfolio-Project/stus/dashboard
  ```
  
 3. **Install Node.js version 21 and project dependenciess**
