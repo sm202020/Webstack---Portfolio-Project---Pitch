@@ -6,7 +6,7 @@ import MailIcon from '../assets/mailIcon.png';
 import gitHubIcon from '../assets/gitHubIcon.png';
 import linkedInIcon from '../assets/linkedinIcon.png';
 import Smith from '../assets/Smith.jpg';
-// import Najaatu from '../assets/Najaatu.jpg';
+import Najaatu from '../assets/Najaatu.jpg';
 import Taofeek from '../assets/Taofeek.jpg';
 import { StyleSheet, css } from 'aphrodite';
 
@@ -112,7 +112,7 @@ export default function AboutUs(){
                 </div>
 
                 <div className={css(AboutUsStyles.teamCard)}>
-                     <img src={Smith} alt="Najaatu's picture" className={css(AboutUsStyles.img)} />
+                     <img src={Najaatu} alt="Najaatu's picture" className={css(AboutUsStyles.img)} />
                      <h3 className={css(AboutUsStyles.h3)}>Najaatu Atiku Umar</h3>
                      <p className={css(AboutUsStyles.p)}><strong>Role: Tester</strong></p>
                      <p className={css(AboutUsStyles.p)}><strong>Contributed to overall platform design</strong></p>
