@@ -12,6 +12,7 @@ const firebaseConfig = {
   authDomain: "stus-6714f.firebaseapp.com",
   projectId: "stus-6714f",
   storageBucket: "stus-6714f.firebasestorage.app",
+  storageBucket: "stus-6714f.appspot.com",
   messagingSenderId: "496601729164",
   appId: "1:496601729164:web:341a4dc127cab715ce93a9",
   measurementId: "G-G28ZR0MWW8"

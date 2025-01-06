@@ -7,10 +7,16 @@ import { StyleSheet, css } from 'aphrodite';
 export default function LandingPage() {
     const navigate = useNavigate();
 
+
     return (
         <div>
             <div className={css(lpBodyStyles.homePageContainer)}>
                 <Header />
+                <nav className={css(lpBodyStyles.nav)}>
+                    <button onClick={() => navigate('/aboutus')}  className={css(lpBodyStyles.navButton)}>About Us</button>
+                    <button onClick={() => navigate('/login')} className={css(lpBodyStyles.navButton)}>Log In</button>
+                    <button onClick={() => navigate('/signup')} className={css(lpBodyStyles.navButton)}>Sign Up</button>
+                </nav>
                 <div className={css(lpBodyStyles.lpBody)}>
                     <div>
                         <h2 className={css(lpBodyStyles.lpBodyHeading)}>Manage your daily tasks</h2>
@@ -88,5 +94,22 @@ const lpBodyStyles = StyleSheet.create({
             height: "3rem",
             width: '5rem',
         },
+    },
+
+    nav: {
+        position: "absolute",
+        right: '0',
+        top: '2rem',
+        display: "flex",
+        alignContent: "space-between",
+        alignSelf: "center",
+    },
+
+    navButton: {
+        margin: "0 0.5rem",
+        ":hover": {
+            backgroundColor: 'aqua',
+            cursor: "pointer",
+        }
     },
 })

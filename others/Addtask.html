@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUS Task Management App</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+    <header>
+        <h1>STUS Task Management App</h1>
+        <nav>
+            <a href="#add-item">Task</a>
+            <a href="#doc">Doc</a>
+            <a href="#reminder">Reminder</a>
+            <a href="#chat">Chat</a>
+            <a href="#whiteboard">Whiteboard</a>
+            <a href="#dashboard">Dashboard</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <!-- Task Input Section -->
+        <section>
+            <button onclick="addTask()" aria-label="Add Task">+</button>
+            <input type="text" id="taskInput" placeholder="Personal List">
+            <input type="text" id="taskNameInput" placeholder="Task">
+            <h3>Task Name</h3>
+            <h4>Add Description</h4>
+            <h4>Write with AI</h4>
+        </section>
+
+        <!-- Tabs Section -->
+        <section>
+            <div>
+                <ul>
+                    <li><a href="#add-item" class="active">Add Task</a></li>
+                    <li><a href="#todo">To-Do</a></li>
+                    <li><a href="#completed">Completed</a></li>
+                </ul>
+            </div>
+
+            <!-- Add Task Panel -->
+            <div id="add-item" class="tab-content active">
+                <label for="new-task">New Task:</label>
+                <input type="text" id="new-task" placeholder="Enter a new task" aria-label="New task input">
+                <button id="add-task-btn" aria-label="Add task">Add Task</button>
+            </div>
+
+            <!-- To-Do Tasks Panel -->
+            <div id="todo" class="tab-content">
+                <h3>To-Do Tasks</h3>
+                <ul id="incomplete-tasks">
+                    <!-- Dynamically populated tasks -->
+                </ul>
+            </div>
+
+            <!-- Completed Tasks Panel -->
+            <div id="completed" class="tab-content">
+                <h3>Completed Tasks</h3>
+                <ul id="completed-tasks">
+                    <!-- Dynamically populated tasks -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 STUS Task Management</p>
+    </footer>
+
+    <script src="js/script.js">
+        document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll("ul li a");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // Remove active class from tabs and content
+            tabs.forEach((t) => t.classList.remove("active"));
+            tabContents.forEach((content) => content.classList.remove("active"));
+
+            // Add active class to the clicked tab and corresponding content
+            tab.classList.add("active");
+            const targetId = tab.getAttribute("href").substring(1);
+            document.getElementById(targetId).classList.add("active");
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
+
