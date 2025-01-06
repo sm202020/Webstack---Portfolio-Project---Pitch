@@ -1,7 +1,7 @@
 .task-list {
     flex: 1;
     background-color: #e3f2fd;
-    padding: 1rem;
+    padding: 20px;
     border-radius: 4px;
   }
   
@@ -22,8 +22,6 @@
   }
   
   .task-list button {
-    background-color: #2196f3;
-    color: white;
     border: none;
     padding: 0.25rem 0.5rem;
     cursor: pointer;
@@ -42,4 +40,41 @@
     .task-list button {
       margin-top: 0.5rem;
     }
-  }  
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 30px;
+  }
+
+  .task-actions .toggle-status {
+    background-color: #2196f3;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #e3f2fd;
+    font-weight: bold;
+  }
+
+  .task-actions .view {
+    background-color: #2196f3;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #e3f2fd;
+    font-weight: bold;
+  }
+
+  .task-actions .delete {
+    background-color: rgb(247, 92, 92);
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #e3f2fd;
+    font-weight: bold;
+  }
+
+  .task-actions .edit {
+    background-color: #2196f3;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #e3f2fd;
+    font-weight: bold;
+  }

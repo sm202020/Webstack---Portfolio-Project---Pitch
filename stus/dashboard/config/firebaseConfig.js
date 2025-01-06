@@ -8,13 +8,13 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDOl74VEOr658f4nKHgoRM05ib0HMZ5WtE",
-  authDomain: "stus-task-management-app.firebaseapp.com",
-  projectId: "stus-task-management-app",
-  storageBucket: "stus-task-management-app.firebasestorage.app",
-  messagingSenderId: "395735886982",
-  appId: "1:395735886982:web:100b5379643354e5e83507",
-  measurementId: "G-989VRE3TN0"
+  apiKey: "AIzaSyClbn7ZrqRlvpJDgDKhFt8oWTghGWa1aR0",
+  authDomain: "stus-6714f.firebaseapp.com",
+  projectId: "stus-6714f",
+  storageBucket: "stus-6714f.appspot.com",
+  messagingSenderId: "496601729164",
+  appId: "1:496601729164:web:341a4dc127cab715ce93a9",
+  measurementId: "G-G28ZR0MWW8"
 };
 
 // Initialize Firebase

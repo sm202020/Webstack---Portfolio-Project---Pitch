@@ -28,10 +28,10 @@ const TaskList = ({ title, tasks, onUpdateStatus, onEditTask, onDeleteTask, onVi
           <h4>{task.title}</h4>
           <p>{task.deadline && calculateTimeLeft(task.deadline)}</p>
           <div className="task-actions">
-            <button onClick={() => onUpdateStatus(task.id)}>Toggle Status</button>
-            <button onClick={() => onEditTask(task)}>Edit</button>
-            <button onClick={() => onDeleteTask(task.id)}>Delete</button>
-            <button onClick={() => onViewTask(task)}>View</button>
+            <button onClick={() => onViewTask(task)} className='view'>View</button>
+            <button onClick={() => onEditTask(task)} className='edit'>Edit</button>
+            <button onClick={() => onUpdateStatus(task.id)} className='toggle-status'>Toggle Status</button>
+            <button onClick={() => onDeleteTask(task.id)} className='delete'>Delete</button>
           </div>
         </div>
       ))}
