@@ -21,7 +21,7 @@ The name **STUS** is derived from the initial of the first name of all collabora
    - Mark tasks as completed or pending.
 
 3. **Task List View**
-   - Display tasks grouped by their status, e.g., "Pending" and "Completed."
+   - Display tasks grouped by their status, e.g. "Pending" and "Completed."
 
 4. **Notifications**
    - Simple reminders for tasks with due dates
