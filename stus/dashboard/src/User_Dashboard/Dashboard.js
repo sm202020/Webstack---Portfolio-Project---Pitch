@@ -43,7 +43,7 @@ const Dashboard = ({ tasks, onOpenModal, onUpdateTaskStatus, onEditTask, onDelet
         </div>
         <div className="summary-item">
           <h3>Total Tasks</h3>
-          <p>{tasks.length - 1}</p>
+          <p>{tasks.length}</p>
         </div>
       </div>
       <NewTaskButton onClick={onOpenModal} />

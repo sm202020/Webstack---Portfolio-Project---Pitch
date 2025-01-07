@@ -47,7 +47,7 @@ const TaskModal = ({ onClose, onAddTask, onEditTask, taskToEdit }) => {
             type="date"
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
-            required={!taskToEdit} // Ensure it's required for new tasks
+            required={!taskToEdit}
           />
           <div className="modal-buttons">
             <button type="submit">{taskToEdit ? 'Update Task' : 'Add Task'}</button>
